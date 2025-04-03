@@ -18,10 +18,8 @@
     </button>
   </form>
 
-  {% if attempts > 0 and attempts < 5 %}
-    <div class="mt-6 text-4xl">
-      🐺{{ "💨" * (attempts - 1) }}
-    </div>
-  {% endif %}
+  <div class="mt-6 text-4xl">
+    🐺{{ "💨" * attempts }}
+  </div>
 </body>
 </html>

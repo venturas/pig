@@ -44,7 +44,8 @@ def login():
             return redirect("/dashboard")
         else:
             session["login_attempts"] = session.get("login_attempts", 0) + 1
-            if session["login_attempts"] >= 5:
+            if session["login_attempts"] >= 4:
+                session.clear()
                 return redirect("https://www.youtube.com/watch?v=Gtffv9bpB-U")
             return render_template("login.html", error="Not by the hair of my chinny, chin, chin!", attempts=session["login_attempts"])
     return render_template("login.html", attempts=session.get("login_attempts", 0))
