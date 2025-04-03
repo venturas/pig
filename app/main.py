@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, session, url_for
+from flask import Flask, render_template, request, redirect, session
 import sqlite3
 import os
 import hashlib
@@ -49,7 +49,7 @@ def login():
             session["is_admin"] = row["is_admin"]
             return redirect("/dashboard")
         else:
-            return render_template("login.html", error="Login inválido")
+            return render_template("login.html", error="Not by the hair of my chinny, chin, chin!")
     return render_template("login.html")
 
 @app.route("/dashboard", methods=["GET", "POST"])

@@ -15,7 +15,7 @@
   <form method="POST" class="bg-white p-4 shadow rounded mb-6 grid grid-cols-1 md:grid-cols-2 gap-4">
     <input name="title" placeholder="Título" required class="p-2 border rounded" />
     <input name="username" placeholder="Usuário" required class="p-2 border rounded" />
-    <input name="password" placeholder="Senha" required class="p-2 border rounded" />
+    <input name="password" type="password" placeholder="Senha" required class="p-2 border rounded" />
     <input name="url" placeholder="URL" class="p-2 border rounded" />
     <textarea name="notes" placeholder="Notas" class="p-2 border rounded col-span-2"></textarea>
     <select name="collection_id" class="p-2 border rounded col-span-2">
@@ -24,7 +24,7 @@
       <option value="{{ col.id }}">{{ col.name }}</option>
       {% endfor %}
     </select>
-    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded col-span-2">Salvar Senha</button>
+    <button type="submit" class="mt-2 bg-blue-600 text-white px-4 py-2 rounded col-span-2">Salvar Senha</button>
   </form>
   <form method="POST" action="/collection" class="mb-4">
     <input name="name" placeholder="Nova Coleção" required class="p-2 border rounded" />
@@ -35,10 +35,13 @@
     <div class="bg-white p-4 shadow rounded">
       <div class="flex justify-between">
         <div>
-          <strong>{{ p.title }}</strong> — {{ p.username }}<br>
-          <small class="text-gray-500">{{ p.collection_name or "Sem coleção" }}</small>
+          <strong>{{ p.title }}</strong><br>
+          {{ p.username }} | {{ p.url }}<br>
+          <small class="text-gray-500">{{ p.collection_name or "Sem coleção" }}</small><br>
+          <em class="text-sm">{{ p.notes }}</em>
         </div>
-        <span class="text-xs text-gray-400">[Encrypted]</span>
+        <button onclick="this.nextElementSibling.type = this.nextElementSibling.type === 'text' ? 'password' : 'text';" class="text-sm text-blue-600 underline">👁️</button>
+        <input type="password" readonly value="{{ p.password }}" class="ml-2 text-sm border rounded px-2 py-1" />
       </div>
     </div>
     {% endfor %}

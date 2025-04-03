@@ -3,7 +3,10 @@
 <head><meta charset="UTF-8"/><script src="https://cdn.tailwindcss.com"></script><title>Admin</title></head>
 <body class="bg-gray-100 p-6">
 <div class="max-w-xl mx-auto">
-  <h2 class="text-2xl font-bold mb-4">Gerenciar Usuários</h2>
+  <div class="flex justify-between items-center mb-4">
+    <h2 class="text-2xl font-bold">Gerenciar Usuários</h2>
+    <a href="/dashboard" class="text-blue-600 underline">← Voltar</a>
+  </div>
   <form method="POST" class="bg-white p-4 rounded shadow mb-6">
     <input name="username" placeholder="Novo usuário" required class="w-full p-2 border rounded mb-3" />
     <input name="password" placeholder="Senha" type="password" required class="w-full p-2 border rounded mb-3" />
