@@ -46,20 +46,9 @@ def login():
             session["login_attempts"] = session.get("login_attempts", 0) + 1
             if session["login_attempts"] >= 4:
                 session.clear()
-                return redirect("https://www.youtube.com/watch?v=Gtffv9bpB-U")
+                return render_template("wolf.html")
             return render_template("login.html", error="Not by the hair of my chinny, chin, chin!", attempts=session["login_attempts"])
     return render_template("login.html", attempts=session.get("login_attempts", 0))
-
-@app.route("/dashboard", methods=["GET"])
-def dashboard():
-    if "user_id" not in session:
-        return redirect("/")
-    return render_template("dashboard.html", username=session["username"])
-
-@app.route("/logout")
-def logout():
-    session.clear()
-    return redirect("/")
 
 if __name__ == "__main__":
     init_db()
