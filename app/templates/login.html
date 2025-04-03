@@ -53,10 +53,12 @@
   </div>
 
   <script>
-    window.addEventListener("DOMContentLoaded", () => {
-      document.getElementById("loader").style.display = "none";
-      document.getElementById("content").style.display = "flex";
-    });
+    window.onload = () => {
+      setTimeout(() => {
+        document.getElementById("loader").style.display = "none";
+        document.getElementById("content").style.display = "flex";
+      }, 100); // pequeno delay pra suavizar transição
+    };
   </script>
 </body>
 </html>
