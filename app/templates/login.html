@@ -5,17 +5,28 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <title>Doctor PIG</title>
   <style>
-    #loader {
-      display: flex;
+    body {
+      opacity: 0;
+      transition: opacity 0.2s ease-in-out;
     }
-    #content {
-      display: none;
+    body.loaded {
+      opacity: 1;
+    }
+    #loader {
+      position: fixed;
+      inset: 0;
+      background: #f3f4f6;
+      z-index: 50;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
   </style>
 </head>
-<body class="bg-gray-100 h-screen flex items-center justify-center flex-col">
-  <!-- LOADING SPINNER -->
-  <div id="loader" class="flex flex-col items-center justify-center h-screen">
+<body>
+  <!-- LOADER -->
+  <div id="loader">
     <svg class="animate-spin h-10 w-10 text-pink-600 mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
       <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
       <path class="opacity-75" fill="currentColor"
@@ -24,8 +35,8 @@
     <p class="text-gray-600">Loading Doctor PIG...</p>
   </div>
 
-  <!-- FORM CONTENT -->
-  <div id="content" class="flex flex-col items-center justify-center w-full">
+  <!-- MAIN CONTENT -->
+  <div class="bg-gray-100 min-h-screen flex items-center justify-center flex-col">
     <form method="POST" class="bg-white p-6 rounded shadow-md w-full max-w-sm text-center">
       <h2 class="text-2xl font-bold mb-4">🐷 Doctor PIG</h2>
       {% if error %}
@@ -53,12 +64,10 @@
   </div>
 
   <script>
-    window.onload = () => {
-      setTimeout(() => {
-        document.getElementById("loader").style.display = "none";
-        document.getElementById("content").style.display = "flex";
-      }, 100); // pequeno delay pra suavizar transição
-    };
+    window.addEventListener("load", () => {
+      document.getElementById("loader").style.display = "none";
+      document.body.classList.add("loaded");
+    });
   </script>
 </body>
 </html>
