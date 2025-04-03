@@ -11,6 +11,7 @@ DB_PATH = "data/secure.db"
 FERNET_KEY = os.environ.get("FERNET_KEY", Fernet.generate_key().decode())
 
 def get_db():
+    os.makedirs("data", exist_ok=True)
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     return conn
@@ -20,6 +21,12 @@ def init_db():
     c = conn.cursor()
     c.execute("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, username TEXT UNIQUE, password TEXT)")
     c.execute("CREATE TABLE IF NOT EXISTS passwords (id INTEGER PRIMARY KEY, name TEXT, username TEXT, password TEXT, owner_id INTEGER)")
+    username = "litlepig"
+    password = hashlib.sha256("letmein".encode()).hexdigest()
+    try:
+        c.execute("INSERT INTO users (username, password) VALUES (?, ?)", (username, password))
+    except sqlite3.IntegrityError:
+        pass
     conn.commit()
     conn.close()
 
@@ -38,7 +45,7 @@ def login():
             session["username"] = user["username"]
             return redirect("/dashboard")
         else:
-            return "Login inválido"
+            return render_template("login.html", error="Login inválido")
     return render_template("login.html")
 
 @app.route("/dashboard")

@@ -1,19 +1,38 @@
 <!DOCTYPE html>
-<html>
-<head><title>Dashboard</title></head>
-<body>
-    <h2>P.I.G. - Dashboard</h2>
-    <p>Olá, {{ session.username }} | <a href="/logout">Sair</a></p>
-    <form method="POST" action="/add">
-        <input name="name" placeholder="Título" required>
-        <input name="username" placeholder="Usuário" required>
-        <input name="password" placeholder="Senha" required>
-        <button type="submit">Salvar</button>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>P.I.G. - Dashboard</title>
+</head>
+<body class="bg-gray-100 p-4">
+  <div class="max-w-3xl mx-auto">
+    <div class="flex justify-between items-center mb-6">
+      <h2 class="text-2xl font-bold">🐷 P.I.G. - Olá, {{ session.username }}</h2>
+      <a href="/logout" class="text-red-600 underline">Sair</a>
+    </div>
+
+    <form method="POST" action="/add" class="bg-white p-4 rounded shadow mb-6">
+      <div class="flex flex-col md:flex-row gap-4">
+        <input name="name" placeholder="Título" required class="p-2 border rounded w-full" />
+        <input name="username" placeholder="Usuário" required class="p-2 border rounded w-full" />
+        <input name="password" placeholder="Senha" required class="p-2 border rounded w-full" />
+      </div>
+      <button type="submit" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Salvar</button>
     </form>
-    <ul>
+
+    <div class="bg-white p-4 rounded shadow">
+      <h3 class="text-xl font-semibold mb-2">Senhas Cadastradas</h3>
+      <ul class="space-y-2">
         {% for p in passwords %}
-        <li>{{ p["name"] }} - {{ p["username"] }} - [ENCRYPTED]</li>
+        <li class="border p-2 rounded flex justify-between items-center">
+          <span><strong>{{ p["name"] }}</strong> – {{ p["username"] }}</span>
+          <span class="text-sm text-gray-500">[ENCRYPTED]</span>
+        </li>
         {% endfor %}
-    </ul>
+      </ul>
+    </div>
+  </div>
 </body>
 </html>
