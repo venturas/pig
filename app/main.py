@@ -19,13 +19,6 @@ def init_db():
     conn = get_db()
     c = conn.cursor()
     c.execute("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, username TEXT UNIQUE, password TEXT, is_admin INTEGER DEFAULT 0)")
-    c.execute("CREATE TABLE IF NOT EXISTS collections (id INTEGER PRIMARY KEY, name TEXT, owner_id INTEGER)")
-    c.execute("""CREATE TABLE IF NOT EXISTS passwords (
-        id INTEGER PRIMARY KEY,
-        title TEXT, username TEXT, password TEXT,
-        url TEXT, notes TEXT,
-        collection_id INTEGER, owner_id INTEGER
-    )""")
     try:
         admin_pass = hashlib.sha256("letmein".encode()).hexdigest()
         c.execute("INSERT INTO users (username, password, is_admin) VALUES (?, ?, 1)", ("litlepig", admin_pass))
@@ -47,63 +40,14 @@ def login():
             session["user_id"] = row["id"]
             session["username"] = row["username"]
             session["is_admin"] = row["is_admin"]
+            session["login_attempts"] = 0
             return redirect("/dashboard")
         else:
-            return render_template("login.html", error="Not by the hair of my chinny, chin, chin!")
-    return render_template("login.html")
-
-@app.route("/dashboard", methods=["GET", "POST"])
-def dashboard():
-    if "user_id" not in session:
-        return redirect("/")
-    conn = get_db()
-    cur = conn.cursor()
-    if request.method == "POST":
-        f = Fernet(FERNET_KEY.encode())
-        enc_pwd = f.encrypt(request.form["password"].encode())
-        cur.execute("INSERT INTO passwords (title, username, password, url, notes, collection_id, owner_id) VALUES (?, ?, ?, ?, ?, ?, ?)", (
-            request.form["title"], request.form["username"], enc_pwd,
-            request.form["url"], request.form["notes"],
-            request.form["collection_id"], session["user_id"]
-        ))
-        conn.commit()
-    cur.execute("SELECT * FROM collections WHERE owner_id=? OR ?=1", (session["user_id"], session["is_admin"]))
-    collections = cur.fetchall()
-    cur.execute("""SELECT p.*, c.name as collection_name FROM passwords p
-                   LEFT JOIN collections c ON p.collection_id = c.id
-                   WHERE p.owner_id=?""", (session["user_id"],))
-    passwords = cur.fetchall()
-    return render_template("dashboard.html", collections=collections, passwords=passwords)
-
-@app.route("/logout")
-def logout():
-    session.clear()
-    return redirect("/")
-
-@app.route("/admin", methods=["GET", "POST"])
-def admin():
-    if not session.get("is_admin"):
-        return redirect("/")
-    conn = get_db()
-    cur = conn.cursor()
-    if request.method == "POST":
-        user = request.form["username"]
-        pwd = hashlib.sha256(request.form["password"].encode()).hexdigest()
-        cur.execute("INSERT INTO users (username, password, is_admin) VALUES (?, ?, ?)", (user, pwd, int(request.form.get("is_admin", 0))))
-        conn.commit()
-    cur.execute("SELECT * FROM users")
-    users = cur.fetchall()
-    return render_template("admin.html", users=users)
-
-@app.route("/collection", methods=["POST"])
-def add_collection():
-    if "user_id" not in session:
-        return redirect("/")
-    conn = get_db()
-    cur = conn.cursor()
-    cur.execute("INSERT INTO collections (name, owner_id) VALUES (?, ?)", (request.form["name"], session["user_id"]))
-    conn.commit()
-    return redirect("/dashboard")
+            session["login_attempts"] = session.get("login_attempts", 0) + 1
+            if session["login_attempts"] >= 5:
+                return redirect("https://www.youtube.com/watch?v=Gtffv9bpB-U")
+            return render_template("login.html", error="Not by the hair of my chinny, chin, chin!", attempts=session["login_attempts"])
+    return render_template("login.html", attempts=session.get("login_attempts", 0))
 
 if __name__ == "__main__":
     init_db()
