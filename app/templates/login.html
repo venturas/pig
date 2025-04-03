@@ -4,31 +4,59 @@
   <meta charset="UTF-8" />
   <script src="https://cdn.tailwindcss.com"></script>
   <title>Doctor PIG</title>
+  <style>
+    #loader {
+      display: flex;
+    }
+    #content {
+      display: none;
+    }
+  </style>
 </head>
 <body class="bg-gray-100 h-screen flex items-center justify-center flex-col">
-  <form method="POST" class="bg-white p-6 rounded shadow-md w-full max-w-sm text-center">
-    <h2 class="text-2xl font-bold mb-4">🐷 Doctor PIG</h2>
-    {% if error %}
-      <div class="text-red-600 text-sm mb-2">{{ error }}</div>
-    {% endif %}
-    <input name="username" placeholder="Usuário" required class="w-full p-2 border rounded mb-3" />
-    <input name="password" type="password" placeholder="Senha" required class="w-full p-2 border rounded mb-3" />
-    <button type="submit" class="bg-pink-600 text-white px-4 py-2 rounded w-full hover:bg-pink-700">
-      Little pig, little pig, let me in.
-    </button>
-  </form>
-
-  <div class="mt-6 text-center flex flex-col items-center">
-    {% if attempts > 0 %}
-      <div class="relative">
-        <img src="/static/lobo_soprando_flat_transparente.png" alt="Lobo soprando" class="mx-auto w-20">
-        <div class="absolute top-6 left-full text-4xl pl-2 whitespace-nowrap">
-          {% for _ in range(attempts) %}💨{% endfor %}
-        </div>
-      </div>
-    {% else %}
-      <img src="/static/lobo_frontal_flat.png" alt="Lobo frontal" class="mx-auto w-20">
-    {% endif %}
+  <!-- LOADING SPINNER -->
+  <div id="loader" class="flex flex-col items-center justify-center h-screen">
+    <svg class="animate-spin h-10 w-10 text-pink-600 mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+      <path class="opacity-75" fill="currentColor"
+        d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
+    </svg>
+    <p class="text-gray-600">Loading Doctor PIG...</p>
   </div>
+
+  <!-- FORM CONTENT -->
+  <div id="content" class="flex flex-col items-center justify-center w-full">
+    <form method="POST" class="bg-white p-6 rounded shadow-md w-full max-w-sm text-center">
+      <h2 class="text-2xl font-bold mb-4">🐷 Doctor PIG</h2>
+      {% if error %}
+        <div class="text-red-600 text-sm mb-2">{{ error }}</div>
+      {% endif %}
+      <input name="username" placeholder="Usuário" required class="w-full p-2 border rounded mb-3" />
+      <input name="password" type="password" placeholder="Senha" required class="w-full p-2 border rounded mb-3" />
+      <button type="submit" class="bg-pink-600 text-white px-4 py-2 rounded w-full hover:bg-pink-700">
+        Little pig, little pig, let me in.
+      </button>
+    </form>
+
+    <div class="mt-6 text-center flex flex-col items-center">
+      {% if attempts > 0 %}
+        <div class="relative">
+          <img src="/static/lobo_soprando_flat_transparente.png" alt="Lobo soprando" class="mx-auto w-20">
+          <div class="absolute top-6 left-full text-4xl pl-2 whitespace-nowrap">
+            {% for _ in range(attempts) %}💨{% endfor %}
+          </div>
+        </div>
+      {% else %}
+        <img src="/static/lobo_frontal_flat.png" alt="Lobo frontal" class="mx-auto w-20">
+      {% endif %}
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("loader").style.display = "none";
+      document.getElementById("content").style.display = "flex";
+    });
+  </script>
 </body>
 </html>
