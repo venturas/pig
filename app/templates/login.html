@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <script src="https://cdn.tailwindcss.com"></script>
   <title>Doctor PIG</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     body {
       opacity: 0;
@@ -36,15 +37,15 @@
   </div>
 
   <!-- MAIN CONTENT -->
-  <div class="bg-gray-100 min-h-screen flex items-center justify-center flex-col">
-    <form method="POST" class="bg-white p-6 rounded shadow-md w-full max-w-sm text-center">
-      <h2 class="text-2xl font-bold mb-4">🐷 Doctor PIG</h2>
+  <div class="bg-gray-100 min-h-screen flex items-center justify-center flex-col px-4">
+    <form method="POST" class="bg-white p-6 rounded shadow-md w-full max-w-xs text-center">
+      <h2 class="text-xl font-bold mb-4">🐷 Doctor PIG</h2>
       {% if error %}
         <div class="text-red-600 text-sm mb-2">{{ error }}</div>
       {% endif %}
-      <input name="username" placeholder="Usuário" required class="w-full p-2 border rounded mb-3" />
-      <input name="password" type="password" placeholder="Senha" required class="w-full p-2 border rounded mb-3" />
-      <button type="submit" class="bg-pink-600 text-white px-4 py-2 rounded w-full hover:bg-pink-700">
+      <input name="username" placeholder="Usuário" required class="w-full p-2 border rounded mb-3 text-sm" />
+      <input name="password" type="password" placeholder="Senha" required class="w-full p-2 border rounded mb-3 text-sm" />
+      <button type="submit" class="bg-pink-600 text-white px-4 py-2 rounded w-full hover:bg-pink-700 text-sm">
         Little pig, little pig, let me in.
       </button>
     </form>
@@ -52,13 +53,13 @@
     <div class="mt-6 text-center flex flex-col items-center">
       {% if attempts > 0 %}
         <div class="relative flex items-center justify-center">
-          <img src="/static/lobo_soprando_flat_transparente.png" alt="Lobo soprando" class="mx-auto w-20">
-          <div class="absolute top-6 left-full text-4xl pl-2 whitespace-nowrap">
+          <img src="/static/lobo_soprando_flat_transparente.png" alt="Lobo soprando" class="mx-auto w-16 sm:w-20">
+          <div class="absolute top-4 left-full text-2xl sm:text-4xl pl-2 whitespace-nowrap">
             {% for _ in range(attempts) %}💨{% endfor %}
           </div>
         </div>
       {% else %}
-        <img src="/static/lobo_frontal_flat.png" alt="Lobo frontal" class="mx-auto w-20">
+        <img src="/static/lobo_frontal_flat.png" alt="Lobo frontal" class="mx-auto w-16 sm:w-20">
       {% endif %}
     </div>
   </div>
