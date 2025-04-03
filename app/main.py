@@ -7,7 +7,7 @@ from cryptography.fernet import Fernet
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "supersecret")
 
-DB_PATH = "secure.db"
+DB_PATH = "data/secure.db"
 FERNET_KEY = os.environ.get("FERNET_KEY", Fernet.generate_key().decode())
 
 def get_db():
