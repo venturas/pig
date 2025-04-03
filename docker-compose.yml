@@ -5,8 +5,8 @@ services:
     ports:
       - "8080:8080"
     environment:
-      - SECRET_KEY=supersecret
-      - FERNET_KEY=YOURSPECIALKEYHERE
+      - FERNET_KEY=${FERNET_KEY}
+      - SECRET_KEY=${SECRET_KEY}
     volumes:
       - pig-data:/app/secure.db
 
