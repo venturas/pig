@@ -17,8 +17,14 @@
       Little pig, little pig, let me in.
     </button>
   </form>
-  <div class="mt-6 text-4xl">
-    🐺{% if attempts > 0 %}{{ "💨" * attempts }}{% endif %}
+
+  <div class="mt-6 text-center">
+    {% if attempts > 0 %}
+      <img src="/static/lobo_soprando_flat.png" alt="Lobo soprando" class="mx-auto w-20">
+      <div class="text-4xl mt-2">{{ "💨" * attempts }}</div>
+    {% else %}
+      <img src="/static/lobo_frontal_flat.png" alt="Lobo frontal" class="mx-auto w-20">
+    {% endif %}
   </div>
 </body>
 </html>
