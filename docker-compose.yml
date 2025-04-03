@@ -1,4 +1,4 @@
-version: "3"
+version: "4"
 services:
   pig:
     build: .
@@ -10,6 +10,12 @@ services:
       - FERNET_KEY=${FERNET_KEY}
     volumes:
       - pig-data:/app/data
+    networks:
+      - globalnet
 
 volumes:
   pig-data:
+
+networks:
+  globalnet:
+    external: true
