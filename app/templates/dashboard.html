@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head><title>Dashboard</title></head>
+<body>
+    <h2>P.I.G. - Dashboard</h2>
+    <p>Olá, {{ session.username }} | <a href="/logout">Sair</a></p>
+    <form method="POST" action="/add">
+        <input name="name" placeholder="Título" required>
+        <input name="username" placeholder="Usuário" required>
+        <input name="password" placeholder="Senha" required>
+        <button type="submit">Salvar</button>
+    </form>
+    <ul>
+        {% for p in passwords %}
+        <li>{{ p["name"] }} - {{ p["username"] }} - [ENCRYPTED]</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

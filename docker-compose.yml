@@ -1,0 +1,14 @@
+version: "3"
+services:
+  pig:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - SECRET_KEY=supersecret
+      - FERNET_KEY=YOURSPECIALKEYHERE
+    volumes:
+      - pig-data:/app/secure.db
+
+volumes:
+  pig-data:
