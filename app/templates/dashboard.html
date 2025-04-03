@@ -4,7 +4,7 @@
 <body class="bg-gray-50 p-6">
 <div class="max-w-4xl mx-auto">
   <div class="flex justify-between mb-6">
-    <h2 class="text-2xl font-bold">🐷 P.I.G. - Bem-vindo, {{ session.username }}</h2>
+    <h2 class="text-2xl font-bold">🐷 Doctor PIG - Bem-vindo, {{ session.username }}</h2>
     <div class="space-x-3">
       {% if session.is_admin %}
       <a href="/admin" class="text-blue-600 underline">Admin</a>
@@ -33,7 +33,7 @@
   <div class="grid gap-4">
     {% for p in passwords %}
     <div class="bg-white p-4 shadow rounded">
-      <div class="flex justify-between">
+      <div class="flex justify-between items-center">
         <div>
           <strong>{{ p.title }}</strong><br>
           {{ p.username }} | {{ p.url }}<br>

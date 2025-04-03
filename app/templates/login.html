@@ -19,7 +19,7 @@
   </form>
 
   <div class="mt-6 text-4xl">
-    🐺{{ "💨" * attempts }}
+    🐺{% if attempts > 0 %}{{ "💨" * attempts }}{% endif %}
   </div>
 </body>
 </html>
