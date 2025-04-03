@@ -5,14 +5,11 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <title>Doctor PIG</title>
 </head>
-<body class="bg-gray-100 h-screen flex items-center justify-center">
+<body class="bg-gray-100 h-screen flex items-center justify-center flex-col">
   <form method="POST" class="bg-white p-6 rounded shadow-md w-full max-w-sm text-center">
     <h2 class="text-2xl font-bold mb-4">🐷 Doctor PIG</h2>
-    {% if error %}<div class="text-red-600 text-sm mb-2">{{ error }}</div>{% endif %}
-    {% if attempts > 0 %}
-      <div class="text-3xl mb-2">
-        🐺{{ "💨" * (attempts if attempts < 5 else 3) }}
-      </div>
+    {% if error %}
+      <div class="text-red-600 text-sm mb-2">{{ error }}</div>
     {% endif %}
     <input name="username" placeholder="Usuário" required class="w-full p-2 border rounded mb-3" />
     <input name="password" type="password" placeholder="Senha" required class="w-full p-2 border rounded mb-3" />
@@ -20,5 +17,11 @@
       Little pig, little pig, let me in.
     </button>
   </form>
+
+  {% if attempts > 0 and attempts < 5 %}
+    <div class="mt-6 text-4xl">
+      🐺{{ "💨" * (attempts - 1) }}
+    </div>
+  {% endif %}
 </body>
 </html>
