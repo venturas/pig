@@ -26,28 +26,41 @@
     </div>
   </header>
 
-  <!-- Campo de busca -->
-  <div class="p-4">
-    <input type="text" placeholder="Search secrets..." class="w-full max-w-3xl mx-auto p-2 border rounded shadow-sm" />
-  </div>
-
   <!-- Conteúdo principal -->
   <div class="flex flex-1 p-4 space-x-4">
     <!-- Coluna Esquerda -->
-    <aside class="w-1/4 bg-white rounded shadow p-4 flex flex-col">
-      <h2 class="text-lg font-semibold text-gray-800 mb-4 border-b pb-2">Coleções</h2>
-      <ul class="space-y-1 mb-6">
-        <li><a href="#" class="block text-sm text-gray-700 hover:text-pink-600">Pessoal</a></li>
-        <li><a href="#" class="block text-sm text-gray-700 hover:text-pink-600">Trabalho</a></li>
-        <li><a href="#" class="block text-sm text-gray-700 hover:text-pink-600">Outros</a></li>
-      </ul>
+    <aside class="w-1/4 bg-white rounded shadow p-4 flex flex-col space-y-6">
+      <div>
+        <h2 class="text-lg font-semibold text-gray-800 mb-2">Filtrar</h2>
+        <input type="text" placeholder="Buscar segredos..." class="w-full p-2 border rounded shadow-sm" />
+      </div>
 
-      <h3 class="text-sm font-semibold text-gray-600 mb-2">Filtrar por Tags</h3>
-      <div class="flex flex-wrap gap-2">
-        <button class="bg-gray-200 hover:bg-gray-300 text-xs px-2 py-1 rounded">email</button>
-        <button class="bg-pink-200 hover:bg-pink-300 text-xs px-2 py-1 rounded">2FA</button>
-        <button class="bg-yellow-200 hover:bg-yellow-300 text-xs px-2 py-1 rounded">banco</button>
-        <button class="bg-blue-200 hover:bg-blue-300 text-xs px-2 py-1 rounded">devops</button>
+      <div>
+        <h3 class="text-sm font-semibold text-gray-600 mb-2">Coleções</h3>
+        <ul class="space-y-1">
+          <li><a href="#" class="block text-sm text-gray-700 hover:text-pink-600">Pessoal</a></li>
+          <li><a href="#" class="block text-sm text-gray-700 hover:text-pink-600">Trabalho</a></li>
+          <li><a href="#" class="block text-sm text-gray-700 hover:text-pink-600">Outros</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-semibold text-gray-600 mb-2">Tags</h3>
+        <div class="flex flex-wrap gap-2">
+          <button class="bg-gray-200 hover:bg-gray-300 text-xs px-2 py-1 rounded">email</button>
+          <button class="bg-pink-200 hover:bg-pink-300 text-xs px-2 py-1 rounded">2FA</button>
+          <button class="bg-yellow-200 hover:bg-yellow-300 text-xs px-2 py-1 rounded">banco</button>
+          <button class="bg-blue-200 hover:bg-blue-300 text-xs px-2 py-1 rounded">devops</button>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-semibold text-gray-600 mb-2">Tipos</h3>
+        <ul class="space-y-1">
+          <li><button class="text-sm text-gray-700 hover:text-pink-600">Login</button></li>
+          <li><button class="text-sm text-gray-700 hover:text-pink-600">API</button></li>
+          <li><button class="text-sm text-gray-700 hover:text-pink-600">Banco</button></li>
+        </ul>
       </div>
     </aside>
 
