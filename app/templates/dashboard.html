@@ -1,9 +1,58 @@
 <!DOCTYPE html>
 <html>
-<head><meta charset="UTF-8"><title>Dashboard</title></head>
-<body>
-  <h1>Bem-vindo, {{ username }}</h1>
-  <p>Você entrou no Doctor PIG!</p>
-  <a href="/logout">Sair</a>
+<head>
+  <meta charset="UTF-8">
+  <title>Doctor PIG - Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+  <!-- Cabeçalho -->
+  <header class="bg-white shadow p-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold text-gray-700">Doctor PIG</h1>
+    <div class="flex items-center space-x-4">
+      <span class="text-sm text-gray-600">Olá, {{ session.username }}</span>
+      <a href="/logout" class="text-sm text-pink-600 hover:underline">Logout</a>
+    </div>
+  </header>
+
+  <!-- Linha 1: campo de busca -->
+  <div class="p-4">
+    <input type="text" placeholder="Search secrets..." class="w-full max-w-3xl mx-auto p-2 border rounded shadow-sm" />
+  </div>
+
+  <!-- Linha 2: categorias e segredos -->
+  <div class="flex flex-1 p-4 space-x-4">
+    <!-- Coluna Esquerda: Categorias -->
+    <aside class="w-1/4 bg-white rounded shadow p-4 flex flex-col">
+      <h2 class="text-lg font-semibold mb-2">Categorias</h2>
+      <ul class="space-y-1 flex-1 overflow-y-auto">
+        <li><a href="#" class="block text-sm text-gray-700 hover:text-pink-600">Pessoal</a></li>
+        <li><a href="#" class="block text-sm text-gray-700 hover:text-pink-600">Trabalho</a></li>
+        <li><a href="#" class="block text-sm text-gray-700 hover:text-pink-600">Outros</a></li>
+      </ul>
+      <button class="mt-4 bg-pink-600 text-white text-sm py-2 px-4 rounded hover:bg-pink-700">+ Nova Categoria</button>
+    </aside>
+
+    <!-- Coluna Direita: Segredos -->
+    <main class="flex-1 bg-white rounded shadow p-4 flex flex-col">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-lg font-semibold">Segredos</h2>
+        <button class="bg-pink-600 text-white text-sm py-2 px-4 rounded hover:bg-pink-700">+ Novo Segredo</button>
+      </div>
+      <ul class="space-y-2 overflow-y-auto">
+        <li class="p-3 border rounded shadow-sm bg-gray-50">
+          <h3 class="text-sm font-medium text-gray-800">Login Email Pessoal</h3>
+          <p class="text-xs text-gray-500">Categoria: Pessoal</p>
+        </li>
+        <li class="p-3 border rounded shadow-sm bg-gray-50">
+          <h3 class="text-sm font-medium text-gray-800">GitHub Token</h3>
+          <p class="text-xs text-gray-500">Categoria: Trabalho</p>
+        </li>
+      </ul>
+    </main>
+  </div>
+
 </body>
 </html>
