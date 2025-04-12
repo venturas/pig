@@ -26,28 +26,34 @@
     </div>
   </header>
 
-  <!-- Linha 1: campo de busca -->
+  <!-- Campo de busca -->
   <div class="p-4">
     <input type="text" placeholder="Search secrets..." class="w-full max-w-3xl mx-auto p-2 border rounded shadow-sm" />
   </div>
 
-  <!-- Linha 2 -->
+  <!-- Conteúdo principal -->
   <div class="flex flex-1 p-4 space-x-4">
-    <!-- Coluna Esquerda: Categorias -->
+    <!-- Coluna Esquerda -->
     <aside class="w-1/4 bg-white rounded shadow p-4 flex flex-col">
-      <h2 class="text-lg font-semibold mb-2">Categorias</h2>
-      <ul class="space-y-1 mb-4">
+      <h2 class="text-lg font-semibold text-gray-800 mb-4 border-b pb-2">Coleções</h2>
+      <ul class="space-y-1 mb-6">
         <li><a href="#" class="block text-sm text-gray-700 hover:text-pink-600">Pessoal</a></li>
         <li><a href="#" class="block text-sm text-gray-700 hover:text-pink-600">Trabalho</a></li>
         <li><a href="#" class="block text-sm text-gray-700 hover:text-pink-600">Outros</a></li>
       </ul>
+
+      <h3 class="text-sm font-semibold text-gray-600 mb-2">Filtrar por Tags</h3>
+      <div class="flex flex-wrap gap-2">
+        <button class="bg-gray-200 hover:bg-gray-300 text-xs px-2 py-1 rounded">email</button>
+        <button class="bg-pink-200 hover:bg-pink-300 text-xs px-2 py-1 rounded">2FA</button>
+        <button class="bg-yellow-200 hover:bg-yellow-300 text-xs px-2 py-1 rounded">banco</button>
+        <button class="bg-blue-200 hover:bg-blue-300 text-xs px-2 py-1 rounded">devops</button>
+      </div>
     </aside>
 
-    <!-- Coluna Direita: Segredos -->
+    <!-- Coluna Direita -->
     <main class="flex-1 bg-white rounded shadow p-4 flex flex-col">
-      <div class="flex justify-between items-center mb-4">
-        <h2 class="text-lg font-semibold">Segredos</h2>
-      </div>
+      <h2 class="text-lg font-semibold text-gray-800 mb-4 border-b pb-2">Segredos</h2>
       <ul class="space-y-2 overflow-y-auto">
         <li class="p-3 border rounded shadow-sm bg-gray-50 flex justify-between items-center">
           <div class="flex items-center space-x-4">
@@ -63,9 +69,14 @@
               <span class="bg-pink-200 text-xs px-2 py-1 rounded">pessoal</span>
             </span>
             <button class="text-gray-600 hover:text-gray-800" title="Visualizar">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/>
                 <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </button>
+            <button class="text-gray-600 hover:text-gray-800" title="Compartilhar">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7a3.003 3.003 0 000-1.4l7.02-4.11a3 3 0 10-.91-1.61l-7.02 4.11a3 3 0 100 4.83l7.02 4.11a3 3 0 101.96-.85z"/>
               </svg>
             </button>
           </div>
