@@ -50,6 +50,14 @@ def login():
             return render_template("login.html", error="Not by the hair of my chinny, chin, chin!", attempts=session["login_attempts"])
     return render_template("login.html", attempts=session.get("login_attempts", 0))
 
+
+
+@app.route("/dashboard")
+def dashboard():
+    if not session.get("user_id"):
+        return redirect("/")
+    return render_template("dashboard.html")    
+
 if __name__ == "__main__":
     init_db()
     app.run(host="0.0.0.0", port=8080)
