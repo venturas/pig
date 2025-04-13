@@ -1,14 +1,20 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <title>Doctor PIG - Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    summary::-webkit-details-marker, summary::marker { display: none; }
-    summary { list-style: none; }
+    summary::-webkit-details-marker,
+    summary::marker {
+      display: none !important;
+    }
+    summary {
+      list-style: none;
+      appearance: none;
+    }
     summary::after {
       content: "▶";
       float: right;
@@ -76,8 +82,8 @@
     <h2 class="text-lg font-semibold text-gray-800 mb-4 border-b pb-2">Segredos</h2>
     <ul class="space-y-2">
 
-      <li class="p-3 border rounded shadow-sm bg-gray-50 hover:bg-gray-100 flex justify-between items-center">
-        <div class="flex items-center gap-3">
+      <li class="p-3 border rounded shadow-sm bg-gray-50 hover:bg-gray-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0">
+        <div class="flex items-center gap-3 w-full sm:w-auto">
           <input type="checkbox" class="form-checkbox accent-pink-500 mt-0.5" />
           <button class="text-gray-600 hover:text-gray-800 mt-0.5" title="Menu">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -90,7 +96,7 @@
             <p class="text-xs text-gray-500">conta@email.com</p>
           </div>
         </div>
-        <div class="flex items-center space-x-2">
+        <div class="flex items-center flex-wrap justify-end gap-2 w-full sm:w-auto">
           <span class="flex gap-1"><span class="bg-gray-200 text-xs px-2 py-1 rounded">email</span> <span class="bg-pink-200 text-xs px-2 py-1 rounded">2FA</span></span>
           <button class="text-gray-600 hover:text-gray-800" title="Compartilhar">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -109,8 +115,8 @@
         </div>
       </li>
     
-      <li class="p-3 border rounded shadow-sm bg-gray-50 hover:bg-gray-100 flex justify-between items-center">
-        <div class="flex items-center gap-3">
+      <li class="p-3 border rounded shadow-sm bg-gray-50 hover:bg-gray-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0">
+        <div class="flex items-center gap-3 w-full sm:w-auto">
           <input type="checkbox" class="form-checkbox accent-pink-500 mt-0.5" />
           <button class="text-gray-600 hover:text-gray-800 mt-0.5" title="Menu">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -123,7 +129,7 @@
             <p class="text-xs text-gray-500">finance@bank.com</p>
           </div>
         </div>
-        <div class="flex items-center space-x-2">
+        <div class="flex items-center flex-wrap justify-end gap-2 w-full sm:w-auto">
           <span class="flex gap-1"><span class="bg-yellow-200 text-xs px-2 py-1 rounded">banco</span></span>
           <button class="text-gray-600 hover:text-gray-800" title="Compartilhar">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -142,8 +148,8 @@
         </div>
       </li>
     
-      <li class="p-3 border rounded shadow-sm bg-gray-50 hover:bg-gray-100 flex justify-between items-center">
-        <div class="flex items-center gap-3">
+      <li class="p-3 border rounded shadow-sm bg-gray-50 hover:bg-gray-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0">
+        <div class="flex items-center gap-3 w-full sm:w-auto">
           <input type="checkbox" class="form-checkbox accent-pink-500 mt-0.5" />
           <button class="text-gray-600 hover:text-gray-800 mt-0.5" title="Menu">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -156,7 +162,7 @@
             <p class="text-xs text-gray-500">dev@infra.io</p>
           </div>
         </div>
-        <div class="flex items-center space-x-2">
+        <div class="flex items-center flex-wrap justify-end gap-2 w-full sm:w-auto">
           <span class="flex gap-1"><span class="bg-green-200 text-xs px-2 py-1 rounded">api</span> <span class="bg-blue-200 text-xs px-2 py-1 rounded">devops</span></span>
           <button class="text-gray-600 hover:text-gray-800" title="Compartilhar">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -175,8 +181,8 @@
         </div>
       </li>
     
-      <li class="p-3 border rounded shadow-sm bg-gray-50 hover:bg-gray-100 flex justify-between items-center">
-        <div class="flex items-center gap-3">
+      <li class="p-3 border rounded shadow-sm bg-gray-50 hover:bg-gray-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0">
+        <div class="flex items-center gap-3 w-full sm:w-auto">
           <input type="checkbox" class="form-checkbox accent-pink-500 mt-0.5" />
           <button class="text-gray-600 hover:text-gray-800 mt-0.5" title="Menu">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -189,7 +195,7 @@
             <p class="text-xs text-gray-500">wifi@empresa.net</p>
           </div>
         </div>
-        <div class="flex items-center space-x-2">
+        <div class="flex items-center flex-wrap justify-end gap-2 w-full sm:w-auto">
           <span class="flex gap-1"><span class="bg-purple-200 text-xs px-2 py-1 rounded">wifi</span></span>
           <button class="text-gray-600 hover:text-gray-800" title="Compartilhar">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -208,8 +214,8 @@
         </div>
       </li>
     
-      <li class="p-3 border rounded shadow-sm bg-gray-50 hover:bg-gray-100 flex justify-between items-center">
-        <div class="flex items-center gap-3">
+      <li class="p-3 border rounded shadow-sm bg-gray-50 hover:bg-gray-100 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0">
+        <div class="flex items-center gap-3 w-full sm:w-auto">
           <input type="checkbox" class="form-checkbox accent-pink-500 mt-0.5" />
           <button class="text-gray-600 hover:text-gray-800 mt-0.5" title="Menu">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -222,7 +228,7 @@
             <p class="text-xs text-gray-500">cloud@infra.com</p>
           </div>
         </div>
-        <div class="flex items-center space-x-2">
+        <div class="flex items-center flex-wrap justify-end gap-2 w-full sm:w-auto">
           <span class="flex gap-1"><span class="bg-blue-200 text-xs px-2 py-1 rounded">devops</span></span>
           <button class="text-gray-600 hover:text-gray-800" title="Compartilhar">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
