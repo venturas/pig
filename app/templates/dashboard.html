@@ -1,1 +1,127 @@
-<!-- O HTML completo com acordeões no mobile, ícone alinhado e títulos refinados será inserido aqui -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Doctor PIG - Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="bg-white shadow p-4 flex justify-between items-center">
+    <div class="flex items-center space-x-2">
+      <span class="text-2xl">🐷</span>
+      <h1 class="text-xl font-bold text-gray-700">Doctor PIG</h1>
+    </div>
+    <div class="flex items-center space-x-3">
+      <button class="w-9 h-9 bg-black text-white rounded hover:bg-gray-800 text-xl font-bold flex items-center justify-center">
+        +
+      </button>
+      <button class="w-9 h-9 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-600" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v2h20v-2c0-3.3-6.7-5-10-5z"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="flex flex-1 flex-col lg:flex-row p-4 gap-4">
+    <!-- Sidebar -->
+    <aside class="w-full lg:w-1/4 bg-white rounded shadow p-4 space-y-4">
+      <!-- Search -->
+      <div>
+        <h2 class="text-lg font-semibold text-gray-800 mb-2">Filtrar</h2>
+        <hr class="mb-4 border-gray-300" />
+        <input type="text" placeholder="Buscar segredos..." class="w-full p-2 border rounded shadow-sm" />
+      </div>
+
+      <!-- Accordion wrapper mobile -->
+      <div class="space-y-2 lg:space-y-4">
+        <!-- Coleções -->
+        <details class="lg:open group">
+          <summary class="font-semibold text-sm text-gray-700 cursor-pointer py-1 hover:text-pink-600 flex justify-between items-center">
+            Coleções
+            <span class="lg:hidden text-xs text-gray-400 group-open:rotate-90 transition">▶</span>
+          </summary>
+          <ul class="pl-2 mt-1 space-y-1 text-sm text-gray-700">
+            <li><a href="#" class="hover:text-pink-600">Pessoal</a></li>
+            <li><a href="#" class="hover:text-pink-600">Trabalho</a></li>
+            <li><a href="#" class="hover:text-pink-600">Outros</a></li>
+          </ul>
+        </details>
+
+        <!-- Tags -->
+        <details class="lg:open group">
+          <summary class="font-semibold text-sm text-gray-700 cursor-pointer py-1 hover:text-pink-600 flex justify-between items-center">
+            Tags
+            <span class="lg:hidden text-xs text-gray-400 group-open:rotate-90 transition">▶</span>
+          </summary>
+          <div class="flex flex-wrap gap-2 mt-1 pl-2">
+            <span class="bg-gray-200 text-xs px-2 py-1 rounded">email</span>
+            <span class="bg-pink-200 text-xs px-2 py-1 rounded">2FA</span>
+            <span class="bg-yellow-200 text-xs px-2 py-1 rounded">banco</span>
+            <span class="bg-blue-200 text-xs px-2 py-1 rounded">devops</span>
+          </div>
+        </details>
+
+        <!-- Tipos -->
+        <details class="lg:open group">
+          <summary class="font-semibold text-sm text-gray-700 cursor-pointer py-1 hover:text-pink-600 flex justify-between items-center">
+            Tipos
+            <span class="lg:hidden text-xs text-gray-400 group-open:rotate-90 transition">▶</span>
+          </summary>
+          <ul class="pl-2 mt-1 space-y-1 text-sm text-gray-700">
+            <li><button class="hover:text-pink-600">Login</button></li>
+            <li><button class="hover:text-pink-600">API</button></li>
+            <li><button class="hover:text-pink-600">Banco</button></li>
+          </ul>
+        </details>
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="flex-1 bg-white rounded shadow p-4">
+      <h2 class="text-lg font-semibold text-gray-800 mb-4 border-b pb-2">Segredos</h2>
+      <ul class="space-y-2">
+        <li class="p-3 border rounded shadow-sm bg-gray-50 flex justify-between items-center">
+          <div class="flex items-center gap-3">
+            <input type="checkbox" class="form-checkbox accent-pink-500" />
+            <button class="text-gray-500 hover:text-gray-800">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M6 10a2 2 0 114 0 2 2 0 01-4 0zm4-4a2 2 0 110-4 2 2 0 010 4zm0 8a2 2 0 100 4 2 2 0 000-4z"/>
+              </svg>
+            </button>
+            <span class="text-lg">🔐</span>
+            <div>
+              <h3 class="text-sm font-medium text-gray-800">Login Email Pessoal</h3>
+              <p class="text-xs text-gray-500">Categoria: Pessoal</p>
+            </div>
+          </div>
+          <div class="flex items-center space-x-2">
+            <span class="flex gap-1">
+              <span class="bg-gray-200 text-xs px-2 py-1 rounded">email</span>
+              <span class="bg-pink-200 text-xs px-2 py-1 rounded">2FA</span>
+            </span>
+            <button class="text-gray-600 hover:text-gray-800" title="Compartilhar">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+                <path d="M16 3.13a4 4 0 010 7.75"/>
+              </svg>
+            </button>
+            <button class="text-gray-600 hover:text-gray-800" title="Visualizar">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </button>
+          </div>
+        </li>
+      </ul>
+    </main>
+  </div>
+</body>
+</html>
