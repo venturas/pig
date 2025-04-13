@@ -35,7 +35,7 @@
   </div>
   <div class="flex items-center space-x-3">
     <button class="w-9 h-9 bg-black text-white rounded hover:bg-gray-800 text-xl font-bold flex items-center justify-center">+</button>
-    <div class="w-9 h-9 rounded-full bg-gray-300 flex items-center justify-center overflow-hidden">
+    <div class="w-9 h-9 rounded-full bg-gray-300 overflow-hidden">
       <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User" class="w-full h-full object-cover" />
     </div>
   </div>
@@ -45,6 +45,7 @@
   <aside class="w-full lg:w-1/4 bg-white rounded shadow p-4 space-y-4">
     <h2 class="text-xs uppercase tracking-wider text-gray-600 font-semibold">Filtrar</h2>
     <input type="text" placeholder="Buscar segredos..." class="w-full p-2 mt-2 mb-4 border rounded shadow-sm" />
+
     <details class="group lg:open">
       <summary class="text-sm font-bold text-gray-700 py-1 cursor-pointer">Coleções</summary>
       <ul class="pl-2 mt-1 space-y-1 text-sm text-gray-700">
@@ -53,22 +54,33 @@
         <li>Outros</li>
       </ul>
     </details>
+
     <details class="group lg:open">
       <summary class="text-sm font-bold text-gray-700 py-1 cursor-pointer">Tags</summary>
       <div class="flex flex-wrap gap-2 mt-1 pl-2">
-        <span class="bg-green-200 text-xs px-2 py-1 rounded">email</span>
-        <span class="bg-red-200 text-xs px-2 py-1 rounded">financeiro</span>
-        <span class="bg-yellow-200 text-xs px-2 py-1 rounded">devops</span>
-        <span class="bg-indigo-200 text-xs px-2 py-1 rounded">wifi</span>
-        <span class="bg-blue-200 text-xs px-2 py-1 rounded">cloud</span>
+        <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">email</span>
+        <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded">financeiro</span>
+        <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded">devops</span>
+        <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">wifi</span>
+        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">cloud</span>
       </div>
     </details>
+
     <details class="group lg:open">
       <summary class="text-sm font-bold text-gray-700 py-1 cursor-pointer">Tipos</summary>
       <ul class="pl-2 mt-1 space-y-1 text-sm text-gray-700">
         <li>Login</li>
         <li>API</li>
         <li>Banco</li>
+      </ul>
+    </details>
+
+    <details class="group lg:open">
+      <summary class="text-sm font-bold text-gray-700 py-1 cursor-pointer">Pessoas</summary>
+      <ul class="pl-2 mt-1 space-y-1 text-sm text-gray-700">
+        <li>João</li>
+        <li>Maria</li>
+        <li>Equipe TI</li>
       </ul>
     </details>
   </aside>
@@ -85,14 +97,14 @@
               <path d="M3 6h18M3 12h18M3 18h18"/>
             </svg>
           </button>
-          <span class="text-lg">📧</span>
+          <span class="text-lg">🔐</span>
           <div>
-            <h3 class="text-sm font-medium text-gray-800">Login Email</h3>
+            <h3 class="text-sm font-medium text-gray-800">Segredo 1</h3>
             <p class="text-xs text-gray-500">user1@example.com</p>
           </div>
         </div>
         <div class="flex items-center flex-wrap gap-2 w-full sm:w-auto justify-end">
-          <span class="text-xs px-2 py-1 rounded bg-gray-200">email</span>
+          <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">email</span>
           <div class="flex items-center text-xs text-gray-600 bg-gray-200 rounded-full px-2 py-1">🔒 Privado</div>
           <button class="text-gray-600 hover:text-gray-800" title="Visualizar">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -111,15 +123,15 @@
               <path d="M3 6h18M3 12h18M3 18h18"/>
             </svg>
           </button>
-          <span class="text-lg">🏦</span>
+          <span class="text-lg">🔐</span>
           <div>
-            <h3 class="text-sm font-medium text-gray-800">Conta Bancária</h3>
+            <h3 class="text-sm font-medium text-gray-800">Segredo 2</h3>
             <p class="text-xs text-gray-500">user2@example.com</p>
           </div>
         </div>
         <div class="flex items-center flex-wrap gap-2 w-full sm:w-auto justify-end">
-          <span class="text-xs px-2 py-1 rounded bg-gray-200">financeiro</span>
-          <div class="flex items-center"><img src="https://randomuser.me/api/portraits/women/11.jpg" alt="Shared" class="w-6 h-6 rounded-full border-2 border-white object-cover -ml-2 first:ml-0" /></div>
+          <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">email</span>
+          <div class="flex items-center text-xs text-gray-600 bg-gray-200 rounded-full px-2 py-1">🔒 Privado</div>
           <button class="text-gray-600 hover:text-gray-800" title="Visualizar">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/>
@@ -137,15 +149,15 @@
               <path d="M3 6h18M3 12h18M3 18h18"/>
             </svg>
           </button>
-          <span class="text-lg">🛠️</span>
+          <span class="text-lg">🔐</span>
           <div>
-            <h3 class="text-sm font-medium text-gray-800">API Key</h3>
+            <h3 class="text-sm font-medium text-gray-800">Segredo 3</h3>
             <p class="text-xs text-gray-500">user3@example.com</p>
           </div>
         </div>
         <div class="flex items-center flex-wrap gap-2 w-full sm:w-auto justify-end">
-          <span class="text-xs px-2 py-1 rounded bg-gray-200">devops</span>
-          <div class="flex items-center"><img src="https://randomuser.me/api/portraits/men/52.jpg" alt="Shared" class="w-6 h-6 rounded-full border-2 border-white object-cover -ml-2 first:ml-0" /><img src="https://randomuser.me/api/portraits/men/53.jpg" alt="Shared" class="w-6 h-6 rounded-full border-2 border-white object-cover -ml-2 first:ml-0" /></div>
+          <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">email</span>
+          <div class="flex items-center text-xs text-gray-600 bg-gray-200 rounded-full px-2 py-1">🔒 Privado</div>
           <button class="text-gray-600 hover:text-gray-800" title="Visualizar">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/>
@@ -163,15 +175,15 @@
               <path d="M3 6h18M3 12h18M3 18h18"/>
             </svg>
           </button>
-          <span class="text-lg">📶</span>
+          <span class="text-lg">🔐</span>
           <div>
-            <h3 class="text-sm font-medium text-gray-800">Wi-Fi Escritório</h3>
+            <h3 class="text-sm font-medium text-gray-800">Segredo 4</h3>
             <p class="text-xs text-gray-500">user4@example.com</p>
           </div>
         </div>
         <div class="flex items-center flex-wrap gap-2 w-full sm:w-auto justify-end">
-          <span class="text-xs px-2 py-1 rounded bg-gray-200">wifi</span>
-          <div class="flex items-center"><img src="https://randomuser.me/api/portraits/men/54.jpg" alt="Shared" class="w-6 h-6 rounded-full border-2 border-white object-cover -ml-2 first:ml-0" /><img src="https://randomuser.me/api/portraits/women/54.jpg" alt="Shared" class="w-6 h-6 rounded-full border-2 border-white object-cover -ml-2 first:ml-0" /><img src="https://randomuser.me/api/portraits/women/55.jpg" alt="Shared" class="w-6 h-6 rounded-full border-2 border-white object-cover -ml-2 first:ml-0" /></div>
+          <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">email</span>
+          <div class="flex items-center text-xs text-gray-600 bg-gray-200 rounded-full px-2 py-1">🔒 Privado</div>
           <button class="text-gray-600 hover:text-gray-800" title="Visualizar">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/>
@@ -189,15 +201,15 @@
               <path d="M3 6h18M3 12h18M3 18h18"/>
             </svg>
           </button>
-          <span class="text-lg">☁️</span>
+          <span class="text-lg">🔐</span>
           <div>
-            <h3 class="text-sm font-medium text-gray-800">Serviço Cloud</h3>
+            <h3 class="text-sm font-medium text-gray-800">Segredo 5</h3>
             <p class="text-xs text-gray-500">user5@example.com</p>
           </div>
         </div>
         <div class="flex items-center flex-wrap gap-2 w-full sm:w-auto justify-end">
-          <span class="text-xs px-2 py-1 rounded bg-gray-200">cloud</span>
-          <div class="flex items-center"><img src="https://randomuser.me/api/portraits/men/56.jpg" alt="Shared" class="w-6 h-6 rounded-full border-2 border-white object-cover -ml-2 first:ml-0" /><img src="https://randomuser.me/api/portraits/women/56.jpg" alt="Shared" class="w-6 h-6 rounded-full border-2 border-white object-cover -ml-2 first:ml-0" /><img src="https://randomuser.me/api/portraits/men/57.jpg" alt="Shared" class="w-6 h-6 rounded-full border-2 border-white object-cover -ml-2 first:ml-0" /><div class="w-6 h-6 rounded-full bg-gray-400 text-xs text-white flex items-center justify-center -ml-2">+1</div></div>
+          <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">email</span>
+          <div class="flex items-center text-xs text-gray-600 bg-gray-200 rounded-full px-2 py-1">🔒 Privado</div>
           <button class="text-gray-600 hover:text-gray-800" title="Visualizar">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/>
