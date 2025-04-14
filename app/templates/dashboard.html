@@ -1,191 +1,72 @@
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Doctor PIG - Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Doctor PIG</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    summary::-webkit-details-marker, summary::marker { display: none !important; }
-    summary { list-style: none; appearance: none; }
-    summary::after {
-      content: "▶";
-      float: right;
-      font-size: 0.9rem;
-      color: #333;
-      transition: transform 0.2s ease;
-    }
-    details[open] summary::after { transform: rotate(90deg); }
-  </style>
 </head>
-<body class="bg-gray-100 min-h-screen text-gray-800 font-sans">
-<header class="bg-white shadow p-4 flex justify-between items-center">
-  <div class="flex items-center gap-3">
-    <img src="https://em-content.zobj.net/thumbs/120/microsoft/319/pig-face_1f437.png" class="w-6 h-6" alt="pig" />
-    <h1 class="text-xl font-bold tracking-tight">Doctor PIG</h1>
-  </div>
-  <div class="flex items-center gap-3">
-    <button title="Novo" class="w-9 h-9 bg-black text-white text-xl rounded flex items-center justify-center hover:bg-gray-800">+</button>
-    <div class="w-9 h-9 rounded-full overflow-hidden border-2 border-gray-300">
-      <img src="https://randomuser.me/api/portraits/men/1.jpg" class="w-full h-full object-cover" />
-    </div>
-  </div>
-</header>
-<div class="flex flex-1 flex-col lg:flex-row p-4 gap-4">
-  <aside class="w-full lg:w-1/4 bg-white rounded shadow p-4 space-y-4">
-    <h2 class="text-xs uppercase tracking-wide text-gray-600 font-semibold">Filtrar</h2>
-    <input type="text" placeholder="Buscar segredos..." class="w-full p-2 border rounded" />
-    <details open>
-      <summary class="text-sm font-bold py-1">Coleções</summary>
-      <ul class="pl-3 text-sm text-gray-700">
-        <li>Pessoal</li><li>Trabalho</li><li>Outros</li>
-      </ul>
-    </details>
-    <details open>
-      <summary class="text-sm font-bold py-1">Tags</summary>
-      <div class="flex flex-wrap gap-2 mt-1 pl-1">
-        <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">email</span>
-        <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded">financeiro</span>
-        <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded">devops</span>
-        <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">wifi</span>
-        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">cloud</span>
+<body class="bg-gray-50">
+  <header class="flex justify-between items-center p-4 bg-white shadow">
+    <h1 class="text-xl font-bold flex items-center gap-2">
+      <span>🐷</span> Doctor PIG
+    </h1>
+    <div class="flex gap-4 items-center">
+      <button class="bg-black text-white w-9 h-9 rounded-md flex items-center justify-center text-xl">+</button>
+      <div class="relative group">
+        <div class="w-9 h-9 rounded-full overflow-hidden border-2 border-gray-300 cursor-pointer">
+          <img src="https://randomuser.me/api/portraits/men/1.jpg" class="w-full h-full object-cover" />
+        </div>
+        <div class="absolute right-0 mt-2 w-32 bg-white border rounded shadow-lg hidden group-hover:block z-50">
+          <a href="/logout" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Logout</a>
+        </div>
       </div>
-    </details>
-    <details open>
-      <summary class="text-sm font-bold py-1">Tipos</summary>
-      <ul class="pl-3 text-sm text-gray-700">
-        <li>Login</li><li>API</li><li>Banco</li>
-      </ul>
-    </details>
-    <details open>
-      <summary class="text-sm font-bold py-1">Pessoas</summary>
-      <ul class="pl-3 text-sm text-gray-700">
-        <li>João</li><li>Maria</li><li>Equipe TI</li>
-      </ul>
-    </details>
-  </aside>
-  <main class="flex-1 bg-white rounded shadow p-4">
-    <h2 class="text-lg font-semibold border-b pb-2 mb-4">Segredos</h2>
-    <ul class="space-y-3">
-
-      <li class="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-gray-50 hover:bg-gray-100 border rounded p-3">
-        <div class="flex items-center gap-3">
-          <input type="checkbox" />
-          <button class="text-gray-600 hover:text-gray-800" title="Menu">
-            <img src="https://cdn-icons-png.flaticon.com/512/2311/2311524.png" alt="menu" class="w-5 h-5" />
-          </button>
-          <span class="text-xl">📧</span>
-          <div>
-            <h3 class="text-sm font-medium">Segredo 1</h3>
-            <p class="text-xs text-gray-500">user1@example.com</p>
-          </div>
+    </div>
+  </header>
+  <main class="flex">
+    <aside class="w-64 bg-white border-r p-4 text-sm">
+      <h2 class="text-xs font-bold text-gray-500 mb-2">FILTRAR</h2>
+      <input type="text" placeholder="Buscar segredos..." class="w-full border rounded p-2 mb-4 text-sm" />
+      <details>
+        <summary class="cursor-pointer font-bold mb-1">Coleções</summary>
+        <ul class="ml-4 text-gray-700">
+          <li>Pessoal</li>
+          <li>Trabalho</li>
+          <li>Outros</li>
+        </ul>
+      </details>
+      <details>
+        <summary class="cursor-pointer font-bold my-1">Tipos</summary>
+        <ul class="ml-4 text-gray-700">
+          <li>Login</li>
+          <li>API</li>
+          <li>Banco</li>
+        </ul>
+      </details>
+      <details>
+        <summary class="cursor-pointer font-bold my-1">Pessoas</summary>
+        <ul class="ml-4 text-gray-700">
+          <li>João</li>
+          <li>Maria</li>
+          <li>Equipe TI</li>
+        </ul>
+      </details>
+      <details>
+        <summary class="cursor-pointer font-bold my-1">Tags</summary>
+        <div class="flex flex-wrap gap-1 mt-2">
+          <span class="px-2 py-1 text-xs bg-green-100 text-green-800 rounded">email</span>
+          <span class="px-2 py-1 text-xs bg-red-100 text-red-800 rounded">financeiro</span>
+          <span class="px-2 py-1 text-xs bg-yellow-100 text-yellow-800 rounded">devops</span>
+          <span class="px-2 py-1 text-xs bg-indigo-100 text-indigo-800 rounded">wifi</span>
+          <span class="px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded">cloud</span>
         </div>
-        <div class="flex flex-wrap items-center justify-end gap-2 mt-2 sm:mt-0">
-          <span class="text-xs px-2 py-1 rounded bg-green-100 text-green-800">email</span>
-          <div class="flex -space-x-2"><span class="text-xs bg-gray-200 text-gray-600 px-2 py-1 rounded-full">🔒 Privado</span></div>
-          <button class="text-gray-600 hover:text-gray-800" title="Visualizar">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/>
-            </svg>
-          </button>
-        </div>
-      </li>
-    
-      <li class="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-gray-50 hover:bg-gray-100 border rounded p-3">
-        <div class="flex items-center gap-3">
-          <input type="checkbox" />
-          <button class="text-gray-600 hover:text-gray-800" title="Menu">
-            <img src="https://cdn-icons-png.flaticon.com/512/2311/2311524.png" alt="menu" class="w-5 h-5" />
-          </button>
-          <span class="text-xl">🏦</span>
-          <div>
-            <h3 class="text-sm font-medium">Segredo 2</h3>
-            <p class="text-xs text-gray-500">user2@example.com</p>
-          </div>
-        </div>
-        <div class="flex flex-wrap items-center justify-end gap-2 mt-2 sm:mt-0">
-          <span class="text-xs px-2 py-1 rounded bg-red-100 text-red-800">financeiro</span>
-          <div class="flex -space-x-2"><img src="https://i.pravatar.cc/24?img=12" class="w-6 h-6 rounded-full border-2 border-white -ml-2" title="U2" /><img src="https://i.pravatar.cc/24?img=13" class="w-6 h-6 rounded-full border-2 border-white -ml-2" title="U3" /></div>
-          <button class="text-gray-600 hover:text-gray-800" title="Visualizar">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/>
-            </svg>
-          </button>
-        </div>
-      </li>
-    
-      <li class="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-gray-50 hover:bg-gray-100 border rounded p-3">
-        <div class="flex items-center gap-3">
-          <input type="checkbox" />
-          <button class="text-gray-600 hover:text-gray-800" title="Menu">
-            <img src="https://cdn-icons-png.flaticon.com/512/2311/2311524.png" alt="menu" class="w-5 h-5" />
-          </button>
-          <span class="text-xl">🔑</span>
-          <div>
-            <h3 class="text-sm font-medium">Segredo 3</h3>
-            <p class="text-xs text-gray-500">user3@example.com</p>
-          </div>
-        </div>
-        <div class="flex flex-wrap items-center justify-end gap-2 mt-2 sm:mt-0">
-          <span class="text-xs px-2 py-1 rounded bg-yellow-100 text-yellow-800">devops</span>
-          <div class="flex -space-x-2"><img src="https://i.pravatar.cc/24?img=13" class="w-6 h-6 rounded-full border-2 border-white -ml-2" title="U3" /><img src="https://i.pravatar.cc/24?img=14" class="w-6 h-6 rounded-full border-2 border-white -ml-2" title="U4" /><img src="https://i.pravatar.cc/24?img=15" class="w-6 h-6 rounded-full border-2 border-white -ml-2" title="U5" /></div>
-          <button class="text-gray-600 hover:text-gray-800" title="Visualizar">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/>
-            </svg>
-          </button>
-        </div>
-      </li>
-    
-      <li class="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-gray-50 hover:bg-gray-100 border rounded p-3">
-        <div class="flex items-center gap-3">
-          <input type="checkbox" />
-          <button class="text-gray-600 hover:text-gray-800" title="Menu">
-            <img src="https://cdn-icons-png.flaticon.com/512/2311/2311524.png" alt="menu" class="w-5 h-5" />
-          </button>
-          <span class="text-xl">📶</span>
-          <div>
-            <h3 class="text-sm font-medium">Segredo 4</h3>
-            <p class="text-xs text-gray-500">user4@example.com</p>
-          </div>
-        </div>
-        <div class="flex flex-wrap items-center justify-end gap-2 mt-2 sm:mt-0">
-          <span class="text-xs px-2 py-1 rounded bg-purple-100 text-purple-800">wifi</span>
-          <div class="flex -space-x-2"><img src="https://i.pravatar.cc/24?img=14" class="w-6 h-6 rounded-full border-2 border-white -ml-2" title="U4" /><img src="https://i.pravatar.cc/24?img=15" class="w-6 h-6 rounded-full border-2 border-white -ml-2" title="U5" /><img src="https://i.pravatar.cc/24?img=16" class="w-6 h-6 rounded-full border-2 border-white -ml-2" title="U6" /><div class="w-6 h-6 rounded-full bg-gray-300 text-xs flex items-center justify-center -ml-2">+1</div></div>
-          <button class="text-gray-600 hover:text-gray-800" title="Visualizar">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/>
-            </svg>
-          </button>
-        </div>
-      </li>
-    
-      <li class="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-gray-50 hover:bg-gray-100 border rounded p-3">
-        <div class="flex items-center gap-3">
-          <input type="checkbox" />
-          <button class="text-gray-600 hover:text-gray-800" title="Menu">
-            <img src="https://cdn-icons-png.flaticon.com/512/2311/2311524.png" alt="menu" class="w-5 h-5" />
-          </button>
-          <span class="text-xl">☁️</span>
-          <div>
-            <h3 class="text-sm font-medium">Segredo 5</h3>
-            <p class="text-xs text-gray-500">user5@example.com</p>
-          </div>
-        </div>
-        <div class="flex flex-wrap items-center justify-end gap-2 mt-2 sm:mt-0">
-          <span class="text-xs px-2 py-1 rounded bg-blue-100 text-blue-800">cloud</span>
-          <div class="flex -space-x-2"><img src="https://i.pravatar.cc/24?img=15" class="w-6 h-6 rounded-full border-2 border-white -ml-2" title="U5" /><img src="https://i.pravatar.cc/24?img=16" class="w-6 h-6 rounded-full border-2 border-white -ml-2" title="U6" /><img src="https://i.pravatar.cc/24?img=17" class="w-6 h-6 rounded-full border-2 border-white -ml-2" title="U7" /><div class="w-6 h-6 rounded-full bg-gray-300 text-xs flex items-center justify-center -ml-2">+2</div></div>
-          <button class="text-gray-600 hover:text-gray-800" title="Visualizar">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/>
-            </svg>
-          </button>
-        </div>
-      </li>
-    
-    </ul>
+      </details>
+    </aside>
+    <section class="flex-1 p-4">
+      <h2 class="text-xl font-semibold mb-4">Segredos</h2>
+      <!-- Cards de segredo aqui -->
+    </section>
   </main>
-</div>
 </body>
 </html>
